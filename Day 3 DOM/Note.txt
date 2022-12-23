@@ -1,0 +1,176 @@
+//specific class selector elements
+//document.getElementsByClassName
+//it will extract the specific class name
+//it will give the output in an array
+//even if it  is a single element then it is an array
+//if the specific class name doesn't exist then it is an empty array
+var res=document.getElementsByTagName("p");
+console.log(res);
+for(var i=0;i<res.length;i++){
+    console.log(res[i].innerHTML);
+}
+//first occurence
+//querySelector
+//selecting the occurence based in html 
+//selecting the html based on their selector property
+//either it may be a class or id selector
+//the output of the method is an element
+//document.querySelector(.classname/#idname/tagname)
+
+//querySelectorAll :will select all the occurences
+//the output of the method is an array
+var res=document.querySelectorAll(".main");
+console.log(res);
+for(var i=0;i<res.length;i++){
+    console.log(res[i].innerHTML);
+}
+
+//Events:specific task 
+
+//You can add the events by using the add event listener method
+//.addEvevntListener("eventname",functionname)
+//ex:onclick is written as click
+//functionname is a userdefined 
+let button=document.createElement("button");
+button.innerHTML="Click Me";
+button.addEventListener("click",foo);
+document.body.append(button);
+
+
+function foo(){
+   console.log("hello world");
+}
+
+//Assignment 01
+//1.Create a HTML span element on every button Click it has to display the content "Welcome to guvi
+//with a font size of 20px and color must be of the blue
+}
+//This table is in HTML, create the sasme table With Below Mentioned Information
+//Using DOM 
+//Deploy the same using netlify
+//Remainder:don't use innerHTML propery 1st Meth
+ <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">First</th>
+            <th scope="col">Middle</th>
+            <th scope="col">Last</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+        
+       
+        </tbody>
+      </table>
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////
+
+
+
+//Pre-requistite For DOM task
+https://drive.google.com/file/d/1uwQsi6gLS-zXy1CaIM6zee8lCcwJYNa8/view?usp=sharing
+var label=document.createElement("label");
+label.setAttribute("for","male");
+label.innerHTML="Male";
+
+var male=document.createElement("input");
+male.setAttribute("type","radio");
+male.setAttribute("name","gender");
+male.setAttribute("id","male");
+male.setAttribute("value","male");
+
+var label1=document.createElement("label");
+label1.setAttribute("for","female");
+label1.innerHTML="feMale";
+
+var female=document.createElement("input");
+female.setAttribute("type","radio");
+female.setAttribute("name","gender");
+female.setAttribute("id","female");
+female.setAttribute("value","female");
+
+document.body.append(label,male,label1,female);
+
+function foo(){
+    
+if(male.checked){
+    let res=document.getElementById("male").value;
+    console.log(res);
+}
+else if(female.checked){
+    let res1=document.getElementById("female").value;
+    console.log(res1);
+}
+else{
+    console.log("others");
+}
+
+
+}
+var temp=[];
+let res=document.getElementsByTagName("checkbox").checked;
+temp.push(res);
+if(temp.length>=2){
+
+}else{
+    alert("select minimum 2");
+}
+// localStorage,sessionStorage
+//browser gives some space to store information
+//localstorage:stores the data without a deadline
+//sessionstorage:stores  the data for a  session
+
+
+//same methods for both
+//setItem,getItem,Remove,clear
+//localStorage.setItem("")
+//it takes the key value pair
+//keyname:value
+//return type:undefined
+// localStorage.setItem("firstname","guvi");
+// localStorage.setItem("middlename","geek");
+// localStorage.setItem("lastname","pvt");
+// console.log(res);
+
+//getItem
+//get item extracts the value
+//it returns the extracted value 
+// var res=localStorage.getItem("middlename");
+// console.log(res);
+
+//remove Item
+//it is removing the elements
+//it is returning undefined
+// var res=localStorage.removeItem("middlename");
+// console.log(res);
+
+//localstorage has to be completely cleared
+localStorage.clear();
+
+https://github.com/rvsp/HTML-CSS/blob/master/Mini-tasks/003-JS-DOM.md
+
+var div=document.createElement("div");
+div.innerHTML="this is div";
+div.addEventListener("mouseover",()=>div.style.color="red");
+document.body.append(div);
+
+function foo(){
+    let res=prompt("enter the value");
+    let span=document.createElement("span");
+    span.innerHTML=res;
+    span.style.color="green";
+    span.style.fontSize="20px";
+    document.body.append(span);
+
+}

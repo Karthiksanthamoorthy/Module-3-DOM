@@ -1,0 +1,353 @@
+//To create any HTML element Dynamically we need to have 3 steps
+
+//Step 01: use an Inbuilt method called document.createElement("elementname");
+//it takes tag name as a parameter
+//it returns the html element
+var ele=document.createElement("div");
+//<div></div>
+//Step 02:adding the Content
+//innerHTML property :this is a property that helps us to add the contnet
+//to the dynamically created HTML tag
+ele.innerHTML="this is a element";
+//<div>this is element</div>
+//step 03:element has to be displayed so we are adding the created element 
+//to body of document
+document.body.append(ele);
+
+var ele=document.createElement("div");
+ele.innerHTML="<span>this is span</span>";
+// ele.innerText="<span>this is span</span>";
+document.body.append(ele);
+//Properties:
+//innerHTML property
+//if you want to nest (one inside the other )
+//use innerHTML
+//if you give one html element inside the innerHTML
+//it will parses that HTML element
+
+//innerText:it will consider the tag also as a content
+var ele=document.createElement("div");
+ele.innerHTML=`
+<p>this is p</p>
+<span>this is span</span>
+`;
+// ele.innerText="<span>this is span</span>";
+document.body.append(ele);
+//Properties:
+//innerHTML property
+//if you want to nest (one inside the other )
+//use innerHTML
+//if you give one html element inside the innerHTML
+//it will parses that HTML element
+
+//innerText:it will consider the tag also as a content
+//Applying CSS:
+// var ele=document.createElement("div");
+// ele.innerHTML="this is div";
+// ele.style.backgroundColor="green";
+// document.body.append(ele);
+
+//Attribute ?
+//to add attribute to the HTML element we use setAttribute Method
+//this method takes 2 parameters
+//setAttribute("class/idname","value");
+var ele=document.createElement("div");
+ele.innerHTML="this is div";
+ele.setAttribute("class","main5");
+//if you wanted to add multiple class names to the same element
+ele.classList.add("main1","main2","main3");
+document.body.append(ele);
+
+//convert it into DOM code
+<div class="main">
+    <span class="main1">
+    this is span
+   </span>
+</div>
+var div=document.createElement("div");
+div.setAttribute("class","main");
+
+var span=document.createElement("span");
+span.setAttribute("class","main1");
+span.innerHTML="this is span";
+
+//parent.append(child);
+div.append(span);
+document.body.append(div);
+//Assigment 01 using second method convert it into  DOM 
+<div class="container">
+    <div class="row">
+        <div class="col">this is col</div>
+    </div>
+</div>
+
+////////////////////Day 2////////////////////////////
+
+
+//Nesting of elements
+var container=document.createElement("div");
+container.setAttribute("class","container");
+
+var row=document.createElement("div");
+row.setAttribute("class","row");
+
+var col=document.createElement("div");
+col.setAttribute("class","col-1");
+col.innerHTML="this is col";
+
+var col1=document.createElement("div");
+col1.setAttribute("class","col-1");
+col1.innerHTML="this is col";
+
+row.append(col,col1);
+container.append(row);
+document.body.append(container);
+//append method  can append multiple elements to a single element
+ <label for="email">Mail</label><br>
+    <input type="email" id="email"><br>
+    <button>Clickme</button>
+
+//in DOM
+var label=document.createElement("label");
+label.setAttribute("for","email");
+label.innerHTML="Mail";
+
+var br1=document.createElement("br");
+
+var input=document.createElement("input");
+input.setAttribute("type","email");
+input.setAttribute("id","email");
+
+var br2=document.createElement("br");
+
+var button=document.createElement("button");
+button.innerHTML="Click Me";
+
+document.body.append(label,br1,input,br2,button);
+//functions: it helps to remove the repeatative code
+var label=createlabels("label","for","email","EmailId");
+var br1=createlinebreak("br");
+var input=createinput("input","type","email","id","email");
+var br2=createlinebreak("br");
+
+var password=createlabels("label","for","pass","Password");
+var br3=createlinebreak("br");
+var passinput=createinput("input","type","password","id","pass");
+var br4=createlinebreak("br");
+
+
+document.body.append(label,br1,input,br2,password,br3,passinput,br4);
+
+
+function createlabels(tagname,attrname,attrvalue,content){
+var ele=document.createElement(tagname);
+ele.setAttribute(attrname,attrvalue);
+ele.innerHTML=content;
+return ele;
+}
+//it is returning an HTML element
+//<label for="email">Mail</label>
+
+function createinput(tagname,attrname,attrvalue,attrname1,attrvalue1){
+    var ele=document.createElement(tagname);
+    ele.setAttribute(attrname,attrvalue);
+    ele.setAttribute(attrname1,attrvalue1);
+    return ele;
+}
+function createlinebreak(tagname){
+var ele=document.createElement(tagname);
+return ele;
+}
+
+//Assignemt 01: Create a HTML Form
+//1.firstname,2.Middlename,3.lastname,4.email,5.password
+//Deploy it in Netlify
+//Already The elements are there in HTML ,How to use them for accessing
+//1.document.getElementById();
+//This method is used to extract the unique element using id attribute
+//it returns the Single HTML element
+function foo(){
+var res=document.getElementById("email").value;
+var res1=document.getElementById("pass").value;
+ console.log(res,res1);
+ if(res==="abc@guvi.in" && res1==="123"){
+     console.log("valid user");
+ }
+ else{
+     console.log("invalid user");
+ }  
+  
+
+/////////////////////////////////Day 3///////////////
+
+
+  //specific class selector elements
+//document.getElementsByClassName
+//it will extract the specific class name
+//it will give the output in an array
+//even if it  is a single element then it is an array
+//if the specific class name doesn't exist then it is an empty array
+
+var res=document.getElementsByTagName("p");
+console.log(res);
+for(var i=0;i<res.length;i++){
+    console.log(res[i].innerHTML);
+}
+//first occurence
+//querySelector
+//selecting the occurence based in html 
+//selecting the html based on their selector property
+//either it may be a class or id selector
+//the output of the method is an element
+//document.querySelector(.classname/#idname/tagname)
+
+//querySelectorAll :will select all the occurences
+//the output of the method is an array
+var res=document.querySelectorAll(".main");
+console.log(res);
+for(var i=0;i<res.length;i++){
+    console.log(res[i].innerHTML);
+}
+
+//Events:specific task 
+
+//You can add the events by using the add event listener method
+//.addEvevntListener("eventname",functionname)
+//ex:onclick is written as click
+//functionname is a userdefined 
+let button=document.createElement("button");
+button.innerHTML="Click Me";
+button.addEventListener("click",foo);
+document.body.append(button);
+
+
+function foo(){
+   console.log("hello world");
+}
+
+//Assignment 01
+//1.Create a HTML span element on every button Click it has to display the content "Welcome to guvi
+//with a font size of 20px and color must be of the blue
+}
+//This table is in HTML, create the sasme table With Below Mentioned Information
+//Using DOM 
+//Deploy the same using netlify
+//Remainder:don't use innerHTML propery 1st Meth
+ <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">First</th>
+            <th scope="col">Middle</th>
+            <th scope="col">Last</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+        
+       
+        </tbody>
+      </table>
+
+
+      ///////////////////Day 4//////////////////////////////////
+
+//Pre-requistite For DOM task
+https://drive.google.com/file/d/1uwQsi6gLS-zXy1CaIM6zee8lCcwJYNa8/view?usp=sharing
+var label=document.createElement("label");
+label.setAttribute("for","male");
+label.innerHTML="Male";
+
+var male=document.createElement("input");
+male.setAttribute("type","radio");
+male.setAttribute("name","gender");
+male.setAttribute("id","male");
+male.setAttribute("value","male");
+
+var label1=document.createElement("label");
+label1.setAttribute("for","female");
+label1.innerHTML="feMale";
+
+var female=document.createElement("input");
+female.setAttribute("type","radio");
+female.setAttribute("name","gender");
+female.setAttribute("id","female");
+female.setAttribute("value","female");
+
+document.body.append(label,male,label1,female);
+
+function foo(){
+    
+if(male.checked){
+    let res=document.getElementById("male").value;
+    console.log(res);
+}
+else if(female.checked){
+    let res1=document.getElementById("female").value;
+    console.log(res1);
+}
+else{
+    console.log("others");
+}
+
+
+}
+var temp=[];
+let res=document.getElementsByTagName("checkbox").checked;
+temp.push(res);
+if(temp.length>=2){
+
+}else{
+    alert("select minimum 2");
+}
+// localStorage,sessionStorage
+//browser gives some space to store information
+//localstorage:stores the data without a deadline
+//sessionstorage:stores  the data for a  session
+
+
+//same methods for both
+//setItem,getItem,Remove,clear
+//localStorage.setItem("")
+//it takes the key value pair
+//keyname:value
+//return type:undefined
+// localStorage.setItem("firstname","guvi");
+// localStorage.setItem("middlename","geek");
+// localStorage.setItem("lastname","pvt");
+// console.log(res);
+
+//getItem
+//get item extracts the value
+//it returns the extracted value 
+// var res=localStorage.getItem("middlename");
+// console.log(res);
+
+//remove Item
+//it is removing the elements
+//it is returning undefined
+// var res=localStorage.removeItem("middlename");
+// console.log(res);
+
+//localstorage has to be completely cleared
+localStorage.clear();
+
+https://github.com/rvsp/HTML-CSS/blob/master/Mini-tasks/003-JS-DOM.md
+
+var div=document.createElement("div");
+div.innerHTML="this is div";
+div.addEventListener("mouseover",()=>div.style.color="red");
+document.body.append(div);
+
+function foo(){
+    let res=prompt("enter the value");
+    let span=document.createElement("span");
+    span.innerHTML=res;
+    span.style.color="green";
+    span.style.fontSize="20px";
+    document.body.append(span);
+
+}

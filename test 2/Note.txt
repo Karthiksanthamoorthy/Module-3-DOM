@@ -1,0 +1,74 @@
+//specific class selector elements
+//document.getElementsByClassName
+//it will extract the specific class name
+//it will give the output in an array
+//even if it  is a single element then it is an array
+//if the specific class name doesn't exist then it is an empty array
+var res=document.getElementsByTagName("p");
+console.log(res);
+for(var i=0;i<res.length;i++){
+    console.log(res[i].innerHTML);
+}
+//first occurence
+//querySelector
+//selecting the occurence based in html 
+//selecting the html based on their selector property
+//either it may be a class or id selector
+//the output of the method is an element
+//document.querySelector(.classname/#idname/tagname)
+
+//querySelectorAll :will select all the occurences
+//the output of the method is an array
+var res=document.querySelectorAll(".main");
+console.log(res);
+for(var i=0;i<res.length;i++){
+    console.log(res[i].innerHTML);
+}
+
+//Events:specific task 
+
+//You can add the events by using the add event listener method
+//.addEvevntListener("eventname",functionname)
+//ex:onclick is written as click
+//functionname is a userdefined 
+let button=document.createElement("button");
+button.innerHTML="Click Me";
+button.addEventListener("click",foo);
+document.body.append(button);
+
+
+function foo(){
+   console.log("hello world");
+}
+
+//Assignment 01
+//1.Create a HTML span element on every button Click it has to display the content "Welcome to guvi
+//with a font size of 20px and color must be of the blue
+}
+//This table is in HTML, create the sasme table With Below Mentioned Information
+//Using DOM 
+//Deploy the same using netlify
+//Remainder:don't use innerHTML propery 1st Meth
+ <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">First</th>
+            <th scope="col">Middle</th>
+            <th scope="col">Last</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+        
+       
+        </tbody>
+      </table>
+
+
+
+///////////////////////////////////////////////////////////////////
+

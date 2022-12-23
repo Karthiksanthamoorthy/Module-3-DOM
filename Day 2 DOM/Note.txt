@@ -1,0 +1,76 @@
+////////////Day 2////////////////////
+//append method  can append multiple elements to a single element
+//<label for="email">Mail</label><br>
+//<input type="email" id="email"><br>
+//<button>Clickme</button>
+
+//in DOM
+var label=document.createElement("label");
+label.setAttribute("for","email");
+label.innerHTML="Mail";
+
+var br1=document.createElement("br");
+
+var input=document.createElement("input");
+input.setAttribute("type","email");
+input.setAttribute("id","email");
+
+var br2=document.createElement("br");
+
+var button=document.createElement("button");
+button.innerHTML="Click Me";
+
+document.body.append(label,br1,input,br2,button);
+//functions: it helps to remove the repeatative code
+var label=createlabels("label","for","email","EmailId");
+var br1=createlinebreak("br");
+var input=createinput("input","type","email","id","email");
+var br2=createlinebreak("br");
+
+var password=createlabels("label","for","pass","Password");
+var br3=createlinebreak("br");
+var passinput=createinput("input","type","password","id","pass");
+var br4=createlinebreak("br");
+
+
+document.body.append(label,br1,input,br2,password,br3,passinput,br4);
+
+
+function createlabels(tagname,attrname,attrvalue,content){
+var ele=document.createElement(tagname);
+ele.setAttribute(attrname,attrvalue);
+ele.innerHTML=content;
+return ele;
+}
+//it is returning an HTML element
+//<label for="email">Mail</label>
+
+function createinput(tagname,attrname,attrvalue,attrname1,attrvalue1){
+var ele=document.createElement(tagname);
+ele.setAttribute(attrname,attrvalue);
+ele.setAttribute(attrname1,attrvalue1);
+return ele;
+}
+function createlinebreak(tagname){
+var ele=document.createElement(tagname);
+return ele;
+}
+
+//Assignemt 01: Create a HTML Form
+//1.firstname,2.Middlename,3.lastname,4.email,5.password
+//Deploy it in Netlify
+//Already The elements are there in HTML ,How to use them for accessing
+//1.document.getElementById();
+//This method is used to extract the unique element using id attribute
+//it returns the Single HTML element
+//function foo(){
+var res=document.getElementById("email").value;
+var res1=document.getElementById("pass").value;
+console.log(res,res1);
+// if(res==="abc@guvi.in" && res1==="123"){
+//     console.log("valid user");
+// }
+// else{
+//     console.log("invalid user");
+// }
+x   
